@@ -6,10 +6,17 @@ const fetchTasks = async() => {
     return tasks;
 }
 
-const createElement = (tag, innerText = '') => {
+const createElement = (tag, innerText = '', innerHTML = '') => {
     const element = document.createElement(tag);
     element.innerText = innerText;
     return element;
+
+    if (innerText) {
+        ElementInternals.innerText = innerText;
+    }
+    if (innerHTML) {
+        element.innerHTML = innerHTML;
+    }
 }
 
 const task = {
@@ -29,5 +36,5 @@ const createRow = (task) => {
     const tdStatus = createElement('td');
     const tdActions = createElement('td');
 
-    const editButton = createElement('button')
+    const editButton = createElement('button','','<span class="material-symbols-outlined">edit</span>')
 }
